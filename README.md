@@ -1,11 +1,15 @@
 # 🇵🇰 SehatAI Pakistan — AI-Powered Healthcare & Teleconsultation Platform
 
+[![Live Website](https://img.shields.io/badge/Live_Website-SehatAI_Pakistan-059669?style=for-the-badge&logo=google-chrome)](https://ais-pre-2tus2kgqu6ffoe4uhi2uob-1062257505471.asia-southeast1.run.app)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-fa19m2mr02--creator%2FSehatAI--Pakistan-10b981?style=for-the-badge&logo=github)](https://github.com/fa19m2mr02-creator/SehatAI-Pakistan)
 [![License](https://img.shields.io/badge/License-Apache_2.0-0284c7?style=for-the-badge)](LICENSE)
 [![React](https://img.shields.io/badge/React-19.0-61dafb?style=for-the-badge&logo=react)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178c6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.1-38bdf8?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com)
 [![Gemini API](https://img.shields.io/badge/Google_Gemini-3.6_Flash-8e44ad?style=for-the-badge&logo=google)](https://ai.google.dev)
+
+🌐 **Live Website Application:** [https://ais-pre-2tus2kgqu6ffoe4uhi2uob-1062257505471.asia-southeast1.run.app](https://ais-pre-2tus2kgqu6ffoe4uhi2uob-1062257505471.asia-southeast1.run.app)  
+📁 **GitHub Repository:** [https://github.com/fa19m2mr02-creator/SehatAI-Pakistan](https://github.com/fa19m2mr02-creator/SehatAI-Pakistan)
 
 **SehatAI Pakistan** is Pakistan's premier AI-powered healthcare platform designed specifically for the Pakistani medical ecosystem. It bridges the gap between digital AI triage, PMDC-verified teleconsultations, laboratory report analysis, hospital emergency tracking, and government Sehat Card health insurance coverage.
 
