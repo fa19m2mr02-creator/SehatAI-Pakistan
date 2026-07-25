@@ -26,6 +26,10 @@ export default function App() {
   const [planToast, setPlanToast] = useState<string | null>(null);
 
   const scrollToSection = (sectionId: string) => {
+    if (sectionId === 'emergency') {
+      setIsEmergencyOpen(true);
+      return;
+    }
     const elem = document.getElementById(sectionId);
     if (elem) {
       elem.scrollIntoView({ behavior: 'smooth' });
@@ -74,6 +78,7 @@ export default function App() {
         <Hero
           language={language}
           onQuickStartTriage={handleQuickStartTriage}
+          onNavigateToDoctors={() => scrollToSection('doctors')}
         />
 
         {/* AI Symptom Triage Section */}
