@@ -207,68 +207,68 @@ export const EmergencyModal: React.FC<EmergencyModalProps> = ({ isOpen, onClose 
   const currentCityHospitals = CITY_EMERGENCY_HOSPITALS[selectedCity] || [];
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-      <div className="bg-slate-900 rounded-3xl max-w-2xl w-full p-5 sm:p-7 shadow-2xl border-2 border-rose-600/40 space-y-5 relative my-8 animate-fadeIn text-white">
+    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 overflow-y-auto">
+      <div className="bg-slate-900 rounded-2xl max-w-lg w-full p-4 sm:p-5 shadow-2xl border border-rose-600/40 space-y-3.5 relative my-4 animate-fadeIn text-white text-xs">
         
         {/* Modal Top Bar Navigation */}
-        <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
           <button
             onClick={onClose}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700 font-bold text-xs transition-all cursor-pointer group shadow-sm"
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-950 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700 font-bold text-xs transition-all cursor-pointer group shadow-xs"
             title="Go back to main application"
           >
-            <ArrowLeft className="w-4 h-4 text-cyan-400 group-hover:-translate-x-1 transition-transform" />
-            <span>Back to Main Page</span>
+            <ArrowLeft className="w-3.5 h-3.5 text-cyan-400 group-hover:-translate-x-0.5 transition-transform" />
+            <span>Back</span>
           </button>
 
           <button
             onClick={onClose}
-            className="p-1.5 text-slate-400 hover:text-white rounded-xl hover:bg-slate-800 transition-colors cursor-pointer flex items-center gap-1 text-xs font-bold bg-slate-950 border border-slate-800"
+            className="p-1 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition-colors cursor-pointer flex items-center gap-1 text-xs font-bold bg-slate-950 border border-slate-800 px-2 py-1"
             title="Close Emergency Portal"
           >
-            <X className="w-4 h-4" />
-            <span className="hidden sm:inline">Close</span>
+            <X className="w-3.5 h-3.5" />
+            <span>Close</span>
           </button>
         </div>
 
         {/* Modal Header */}
-        <div className="flex items-center gap-3 border-b border-slate-800/80 pb-3">
-          <div className="w-11 h-11 rounded-2xl bg-rose-600/20 text-rose-400 border border-rose-500/40 flex items-center justify-center shrink-0">
-            <ShieldAlert className="w-6 h-6 animate-pulse text-rose-500" />
+        <div className="flex items-center gap-2.5 border-b border-slate-800/80 pb-2.5">
+          <div className="w-9 h-9 rounded-xl bg-rose-600/20 text-rose-400 border border-rose-500/40 flex items-center justify-center shrink-0">
+            <ShieldAlert className="w-5 h-5 animate-pulse text-rose-500" />
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <span className="bg-rose-950 text-rose-300 border border-rose-800 text-[10px] font-black px-2.5 py-0.5 rounded uppercase tracking-wider">
-                Emergency Medical Portal Pakistan
+            <div className="flex items-center gap-1.5">
+              <span className="bg-rose-950 text-rose-300 border border-rose-800 text-[9px] font-black px-2 py-0.5 rounded uppercase tracking-wider">
+                Emergency Response
               </span>
-              <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping" />
+              <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping" />
             </div>
-            <h3 className="text-lg sm:text-xl font-black text-white">
+            <h3 className="text-sm sm:text-base font-black text-white">
               Immediate Life Emergency Response
             </h3>
           </div>
         </div>
 
         {/* Rapid One-Tap Hotbar */}
-        <div className="bg-gradient-to-r from-rose-950 via-red-900 to-slate-950 p-4 rounded-2xl border border-rose-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-inner">
-          <div className="flex items-center gap-2.5">
-            <Activity className="w-5 h-5 text-rose-400 animate-bounce" />
+        <div className="bg-gradient-to-r from-rose-950 via-red-950 to-slate-950 p-2.5 rounded-xl border border-rose-800/70 flex flex-col sm:flex-row items-center justify-between gap-2 shadow-inner">
+          <div className="flex items-center gap-2">
+            <Activity className="w-4 h-4 text-rose-400 animate-bounce shrink-0" />
             <div>
-              <span className="text-xs font-black text-white block">CRITICAL MEDICAL EMERGENCY?</span>
-              <span className="text-[11px] text-rose-200">Tap below to initiate emergency dial</span>
+              <span className="text-xs font-bold text-white block leading-tight">CRITICAL EMERGENCY?</span>
+              <span className="text-[10px] text-rose-200">Tap below for quick dial</span>
             </div>
           </div>
-          <div className="flex gap-2 w-full sm:w-auto">
+          <div className="flex gap-2 w-full sm:w-auto shrink-0">
             <a
               href="tel:1122"
-              className="flex-1 sm:flex-initial bg-red-600 hover:bg-red-500 text-white font-black text-xs px-4 py-2.5 rounded-xl shadow-lg flex items-center justify-center gap-1.5 transition-all"
+              className="flex-1 sm:flex-initial bg-red-600 hover:bg-red-500 text-white font-extrabold text-xs px-3 py-1.5 rounded-lg shadow-xs flex items-center justify-center gap-1 transition-all"
             >
               <PhoneCall className="w-3.5 h-3.5" />
               <span>Rescue 1122</span>
             </a>
             <a
               href="tel:115"
-              className="flex-1 sm:flex-initial bg-emerald-700 hover:bg-emerald-600 text-white font-black text-xs px-4 py-2.5 rounded-xl shadow-lg flex items-center justify-center gap-1.5 transition-all"
+              className="flex-1 sm:flex-initial bg-emerald-700 hover:bg-emerald-600 text-white font-extrabold text-xs px-3 py-1.5 rounded-lg shadow-xs flex items-center justify-center gap-1 transition-all"
             >
               <PhoneCall className="w-3.5 h-3.5" />
               <span>Edhi 115</span>
@@ -277,85 +277,85 @@ export const EmergencyModal: React.FC<EmergencyModalProps> = ({ isOpen, onClose 
         </div>
 
         {/* Tab Navigation Controls */}
-        <div className="flex border-b border-slate-800 gap-2 overflow-x-auto pb-1 text-xs font-bold scrollbar-none">
+        <div className="flex border-b border-slate-800 gap-1.5 overflow-x-auto pb-1 text-xs font-bold scrollbar-none">
           <button
             onClick={() => setActiveTab('hotlines')}
-            className={`px-3.5 py-2 rounded-xl transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg transition-all whitespace-nowrap cursor-pointer flex items-center gap-1 text-[11px] ${
               activeTab === 'hotlines'
-                ? 'bg-rose-600 text-white shadow-md'
+                ? 'bg-rose-600 text-white shadow-xs'
                 : 'bg-slate-950 text-slate-300 hover:text-white border border-slate-800'
             }`}
           >
-            <PhoneCall className="w-3.5 h-3.5" />
-            <span>National Rescue Hotlines</span>
+            <PhoneCall className="w-3 h-3" />
+            <span>Hotlines</span>
           </button>
 
           <button
             onClick={() => setActiveTab('hospitals')}
-            className={`px-3.5 py-2 rounded-xl transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg transition-all whitespace-nowrap cursor-pointer flex items-center gap-1 text-[11px] ${
               activeTab === 'hospitals'
-                ? 'bg-rose-600 text-white shadow-md'
+                ? 'bg-rose-600 text-white shadow-xs'
                 : 'bg-slate-950 text-slate-300 hover:text-white border border-slate-800'
             }`}
           >
-            <MapPin className="w-3.5 h-3.5" />
-            <span>Hospital ERs by City</span>
+            <MapPin className="w-3 h-3" />
+            <span>Hospital ERs</span>
           </button>
 
           <button
             onClick={() => setActiveTab('firstaid')}
-            className={`px-3.5 py-2 rounded-xl transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg transition-all whitespace-nowrap cursor-pointer flex items-center gap-1 text-[11px] ${
               activeTab === 'firstaid'
-                ? 'bg-rose-600 text-white shadow-md'
+                ? 'bg-rose-600 text-white shadow-xs'
                 : 'bg-slate-950 text-slate-300 hover:text-white border border-slate-800'
             }`}
           >
-            <Zap className="w-3.5 h-3.5" />
-            <span>First Aid & CPR Guide</span>
+            <Zap className="w-3 h-3" />
+            <span>First Aid & CPR</span>
           </button>
 
           <button
             onClick={() => setActiveTab('sos')}
-            className={`px-3.5 py-2 rounded-xl transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 ${
+            className={`px-2.5 py-1.5 rounded-lg transition-all whitespace-nowrap cursor-pointer flex items-center gap-1 text-[11px] ${
               activeTab === 'sos'
-                ? 'bg-rose-600 text-white shadow-md'
+                ? 'bg-rose-600 text-white shadow-xs'
                 : 'bg-slate-950 text-slate-300 hover:text-white border border-slate-800'
             }`}
           >
-            <Send className="w-3.5 h-3.5" />
-            <span>Family SOS Dispatch</span>
+            <Send className="w-3 h-3" />
+            <span>Family SOS</span>
           </button>
         </div>
 
         {/* Tab 1: National Hotlines */}
         {activeTab === 'hotlines' && (
-          <div className="space-y-3 animate-fadeIn">
-            <p className="text-xs text-slate-300">
-              Select any verified national emergency dispatch line below for immediate ambulance or paramedic arrival:
+          <div className="space-y-2.5 animate-fadeIn">
+            <p className="text-[11px] text-slate-300">
+              Verified national emergency dispatch lines for immediate paramedic arrival:
             </p>
-            <div className="grid sm:grid-cols-2 gap-3 max-h-[340px] overflow-y-auto pr-1">
+            <div className="grid sm:grid-cols-2 gap-2 max-h-[220px] overflow-y-auto pr-1">
               {NATIONAL_HOTLINES.map((h) => (
                 <div
                   key={h.id}
-                  className="bg-slate-950 p-3.5 rounded-2xl border border-slate-800 space-y-2.5 flex flex-col justify-between hover:border-slate-700 transition-colors"
+                  className="bg-slate-950 p-2.5 rounded-xl border border-slate-800 space-y-1.5 flex flex-col justify-between hover:border-slate-700 transition-colors"
                 >
                   <div>
-                    <div className="flex items-center justify-between gap-1 mb-1">
-                      <span className="text-[10px] bg-slate-900 text-cyan-300 border border-slate-800 font-extrabold px-2 py-0.5 rounded">
+                    <div className="flex items-center justify-between gap-1 mb-0.5">
+                      <span className="text-[9px] bg-slate-900 text-cyan-300 border border-slate-800 font-extrabold px-1.5 py-0.5 rounded">
                         {h.type}
                       </span>
-                      <span className="text-xs font-mono font-black text-rose-400">Dial {h.number}</span>
+                      <span className="text-[11px] font-mono font-black text-rose-400">Dial {h.number}</span>
                     </div>
                     <h4 className="font-bold text-xs text-white leading-tight">{h.name}</h4>
-                    <p className="text-[10px] text-slate-400 leading-tight mt-1">{h.desc}</p>
+                    <p className="text-[10px] text-slate-400 leading-tight mt-0.5">{h.desc}</p>
                   </div>
 
                   <a
                     href={`tel:${h.number}`}
-                    className={`${h.bg} text-white font-extrabold text-xs py-2 px-3 rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5 w-full text-center`}
+                    className={`${h.bg} text-white font-extrabold text-xs py-1.5 px-2.5 rounded-lg transition-all flex items-center justify-center gap-1 w-full text-center mt-1`}
                   >
-                    <PhoneCall className="w-3.5 h-3.5" />
-                    <span>Call {h.number} Now</span>
+                    <PhoneCall className="w-3 h-3" />
+                    <span>Call {h.number}</span>
                   </a>
                 </div>
               ))}
@@ -365,15 +365,15 @@ export const EmergencyModal: React.FC<EmergencyModalProps> = ({ isOpen, onClose 
 
         {/* Tab 2: Hospital ER by City */}
         {activeTab === 'hospitals' && (
-          <div className="space-y-3.5 animate-fadeIn">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-              <label className="text-xs font-bold text-slate-200">
-                Select Your Pakistani City for Hospital ER Direct Lines:
+          <div className="space-y-2.5 animate-fadeIn">
+            <div className="flex items-center justify-between gap-2">
+              <label className="text-[11px] font-bold text-slate-200">
+                Hospital ER Direct Lines by City:
               </label>
               <select
                 value={selectedCity}
                 onChange={(e) => setSelectedCity(e.target.value)}
-                className="bg-slate-950 border border-slate-700 rounded-xl px-3 py-1.5 text-xs font-bold text-cyan-300 focus:outline-hidden cursor-pointer"
+                className="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1 text-xs font-bold text-cyan-300 focus:outline-hidden cursor-pointer"
               >
                 {PAKISTAN_EMERGENCY_CITIES.filter(c => c !== 'All Cities (National)').map((c) => (
                   <option key={c} value={c} className="bg-slate-900 text-white">{c}</option>
@@ -381,12 +381,12 @@ export const EmergencyModal: React.FC<EmergencyModalProps> = ({ isOpen, onClose 
               </select>
             </div>
 
-            <div className="space-y-2 max-h-[320px] overflow-y-auto pr-1">
+            <div className="space-y-1.5 max-h-[220px] overflow-y-auto pr-1">
               {currentCityHospitals.length > 0 ? (
                 currentCityHospitals.map((h, idx) => (
                   <div
                     key={idx}
-                    className="bg-slate-950 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between gap-3 hover:border-slate-700 transition-colors"
+                    className="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between gap-2 hover:border-slate-700 transition-colors"
                   >
                     <div className="space-y-0.5">
                       <h4 className="font-bold text-xs text-white">{h.hospital}</h4>
@@ -398,16 +398,16 @@ export const EmergencyModal: React.FC<EmergencyModalProps> = ({ isOpen, onClose 
 
                     <a
                       href={`tel:${h.erNumber}`}
-                      className="bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs px-3.5 py-2 rounded-xl shadow-md transition-all flex items-center gap-1.5 shrink-0"
+                      className="bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs px-2.5 py-1.5 rounded-lg shadow-xs transition-all flex items-center gap-1 shrink-0"
                     >
-                      <PhoneCall className="w-3.5 h-3.5" />
+                      <PhoneCall className="w-3 h-3" />
                       <span>{h.erNumber}</span>
                     </a>
                   </div>
                 ))
               ) : (
-                <div className="text-center py-8 text-xs text-slate-400">
-                  Select a city above to view 24/7 Trauma Centers & ER contacts.
+                <div className="text-center py-6 text-xs text-slate-400">
+                  Select a city above to view Trauma Centers & ER contacts.
                 </div>
               )}
             </div>
@@ -416,19 +416,19 @@ export const EmergencyModal: React.FC<EmergencyModalProps> = ({ isOpen, onClose 
 
         {/* Tab 3: First Aid & CPR */}
         {activeTab === 'firstaid' && (
-          <div className="space-y-3 animate-fadeIn max-h-[340px] overflow-y-auto pr-1">
-            <p className="text-xs text-slate-300">
-              Basic Life Support (BLS) guidance while awaiting ambulance arrival:
+          <div className="space-y-2.5 animate-fadeIn max-h-[230px] overflow-y-auto pr-1">
+            <p className="text-[11px] text-slate-300">
+              Basic Life Support (BLS) guidance while awaiting ambulance:
             </p>
-            <div className="grid sm:grid-cols-2 gap-3">
+            <div className="grid sm:grid-cols-2 gap-2">
               {FIRST_AID_GUIDES.map((g, idx) => (
-                <div key={idx} className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
-                  <h4 className="text-xs font-black text-rose-300 flex items-center justify-between border-b border-slate-800 pb-2">
+                <div key={idx} className="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-1.5">
+                  <h4 className="text-xs font-black text-rose-300 flex items-center justify-between border-b border-slate-800 pb-1">
                     <span>{g.titleEn}</span>
-                    <span className="text-[11px] font-bold text-cyan-400 font-mono">{g.titleUr}</span>
+                    <span className="text-[10px] font-bold text-cyan-400 font-mono">{g.titleUr}</span>
                   </h4>
-                  <div className="space-y-2">
-                    <ul className="text-[11px] text-slate-300 space-y-1">
+                  <div className="space-y-1">
+                    <ul className="text-[10px] text-slate-300 space-y-0.5">
                       {g.stepsEn.map((step, sIdx) => (
                         <li key={sIdx} className="flex items-start gap-1">
                           <span className="text-cyan-400 font-bold">•</span>
@@ -436,7 +436,7 @@ export const EmergencyModal: React.FC<EmergencyModalProps> = ({ isOpen, onClose 
                         </li>
                       ))}
                     </ul>
-                    <div className="pt-1 border-t border-slate-800/80 text-[11px] text-teal-300 font-medium dir-rtl" style={{ direction: 'rtl' }}>
+                    <div className="pt-1 border-t border-slate-800/80 text-[10px] text-teal-300 font-medium dir-rtl" style={{ direction: 'rtl' }}>
                       {g.stepsUr.join(' ')}
                     </div>
                   </div>
@@ -448,38 +448,38 @@ export const EmergencyModal: React.FC<EmergencyModalProps> = ({ isOpen, onClose 
 
         {/* Tab 4: Family SOS Dispatcher */}
         {activeTab === 'sos' && (
-          <div className="space-y-4 animate-fadeIn">
-            <p className="text-xs text-slate-300">
-              Send an automated instant Emergency SOS message with location details to family members via WhatsApp or SMS:
+          <div className="space-y-2.5 animate-fadeIn">
+            <p className="text-[11px] text-slate-300">
+              Send instant Emergency SOS with location to family via WhatsApp or SMS:
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-3">
-              <div className="space-y-1">
-                <label className="text-xs font-bold text-slate-300">Patient / Family Name:</label>
+            <div className="grid sm:grid-cols-2 gap-2">
+              <div className="space-y-0.5">
+                <label className="text-[10px] font-bold text-slate-300">Patient Name:</label>
                 <input
                   type="text"
                   value={sosPatient}
                   onChange={(e) => setSosPatient(e.target.value)}
                   placeholder="e.g. Ali Ahmed"
-                  className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-hidden focus:ring-2 focus:ring-rose-500"
+                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1 text-xs text-white focus:outline-hidden focus:ring-1 focus:ring-rose-500"
                 />
               </div>
 
-              <div className="space-y-1">
-                <label className="text-xs font-bold text-slate-300">Current Location / Address:</label>
+              <div className="space-y-0.5">
+                <label className="text-[10px] font-bold text-slate-300">Address / Location:</label>
                 <input
                   type="text"
                   value={sosLocation}
                   onChange={(e) => setSosLocation(e.target.value)}
-                  placeholder="e.g. House 45, Street 12, Gulberg Lahore"
-                  className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-hidden focus:ring-2 focus:ring-rose-500"
+                  placeholder="e.g. Gulberg, Lahore"
+                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1 text-xs text-white focus:outline-hidden focus:ring-1 focus:ring-rose-500"
                 />
               </div>
             </div>
 
-            <div className="bg-slate-950 p-3.5 rounded-2xl border border-slate-800 space-y-2 text-xs">
-              <span className="text-[10px] font-bold text-cyan-400 uppercase tracking-wider block">Generated Emergency Message Preview:</span>
-              <p className="text-slate-300 font-mono bg-slate-900 p-2.5 rounded-xl border border-slate-800 leading-relaxed text-[11px]">
+            <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800 space-y-1 text-xs">
+              <span className="text-[9px] font-bold text-cyan-400 uppercase tracking-wider block">Generated Preview:</span>
+              <p className="text-slate-300 font-mono bg-slate-900 p-2 rounded-lg border border-slate-800 leading-snug text-[10px]">
                 🚨 IMMEDIATE LIFE EMERGENCY ALERT 🚨<br/>
                 Patient Name: {sosPatient || 'Family Member'}<br/>
                 Location: {sosLocation || 'Location details pending'}<br/>
@@ -487,48 +487,48 @@ export const EmergencyModal: React.FC<EmergencyModalProps> = ({ isOpen, onClose 
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2 pt-1">
+            <div className="flex flex-wrap gap-1.5 pt-0.5">
               <button
                 type="button"
                 onClick={() => handleGenerateSos('whatsapp')}
-                className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs py-2 px-3 rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer"
               >
-                <Share2 className="w-4 h-4" />
-                <span>Send via WhatsApp</span>
+                <Share2 className="w-3.5 h-3.5" />
+                <span>WhatsApp</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => handleGenerateSos('sms')}
-                className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-xs py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-xs py-2 px-3 rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer"
               >
-                <Send className="w-4 h-4" />
-                <span>Send via SMS</span>
+                <Send className="w-3.5 h-3.5" />
+                <span>SMS</span>
               </button>
 
               <button
                 type="button"
                 onClick={handleCopySosText}
-                className="bg-slate-950 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold text-xs py-3 px-4 rounded-xl transition-all flex items-center gap-1.5 cursor-pointer"
+                className="bg-slate-950 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold text-xs py-2 px-3 rounded-lg transition-all flex items-center gap-1 cursor-pointer"
               >
-                {sosCopied ? <Check className="w-4 h-4 text-emerald-400" /> : <FileText className="w-4 h-4" />}
-                <span>{sosCopied ? 'Copied!' : 'Copy Text'}</span>
+                {sosCopied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <FileText className="w-3.5 h-3.5" />}
+                <span>{sosCopied ? 'Copied' : 'Copy'}</span>
               </button>
             </div>
           </div>
         )}
 
         {/* Footer Disclaimer & Back Button */}
-        <div className="border-t border-slate-800 pt-3.5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+        <div className="border-t border-slate-800 pt-2.5 flex items-center justify-between gap-2 text-xs">
           <button
             onClick={onClose}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-950 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold px-4 py-2 rounded-xl transition-all cursor-pointer group"
+            className="flex items-center justify-center gap-1.5 bg-slate-950 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold px-3 py-1.5 rounded-lg transition-all cursor-pointer group shrink-0"
           >
-            <ArrowLeft className="w-4 h-4 text-cyan-400 group-hover:-translate-x-1 transition-transform" />
-            <span>Return to Main Healthcare Portal</span>
+            <ArrowLeft className="w-3.5 h-3.5 text-cyan-400 group-hover:-translate-x-0.5 transition-transform" />
+            <span>Return to Portal</span>
           </button>
-          <p className="text-[10px] text-slate-500 italic text-center sm:text-right">
-            In life-threatening situations, dial 1122 directly from any mobile phone or landline in Pakistan.
+          <p className="text-[10px] text-slate-400 italic text-right">
+            In life-threatening situations, dial 1122 directly.
           </p>
         </div>
 
