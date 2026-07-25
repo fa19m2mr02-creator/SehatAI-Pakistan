@@ -1,0 +1,6 @@
+{
+  "name": "SehatAI Pakistan",
+  "description": "Pakistan's leading AI-powered healthcare landing page featuring instant Urdu & English AI symptom triage, PMDC doctor teleconsultations, and hospital directories.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
