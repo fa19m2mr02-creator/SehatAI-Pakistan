@@ -22,6 +22,20 @@
 
 ---
 
+## 📸 Application Showcase & Feature Screenshots
+
+| National AI Symptom Triage | AI Lab Report & Prescription Reader |
+| :---: | :---: |
+| ![AI Symptom Triage](src/assets/images/triage_ui_preview_1785065359573.jpg) | ![AI Lab Report & Prescription Reader](src/assets/images/lab_reader_preview_1785065382214.jpg) |
+| *Bilingual Urdu & English symptom evaluation with instant urgency stratification and clinical report export* | *AI biomarker analysis and prescription translation with actionable health advice* |
+
+| PMDC Verified Doctor Teleconsultations | Hospital Emergency Room & Sehat Card Portal |
+| :---: | :---: |
+| ![PMDC Verified Teleconsultation](src/assets/images/doctor_portal_preview_1785065396924.jpg) | ![Hospital ER & Sehat Card](src/assets/images/hospital_er_preview_1785065412334.jpg) |
+| *Directory of 2,500+ PMDC specialists across Pakistan with instant video booking* | *Real-time ICU/ER bed availability and Sehat Card CNIC eligibility portal* |
+
+---
+
 ## 🌟 Key Features & Capabilities
 
 ### 🩺 1. AI Symptom Triage Assistant (National Health Triage)
