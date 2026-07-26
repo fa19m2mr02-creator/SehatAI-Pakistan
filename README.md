@@ -7,7 +7,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.1-38bdf8?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com)
 [![Gemini API](https://img.shields.io/badge/Google_Gemini-3.6_Flash-8e44ad?style=for-the-badge&logo=google)](https://ai.google.dev)
 
-🌐 **Live Vercel Production Site:** [https://sehat-ai-pakistan-athe.vercel.app/](https://sehat-ai-pakistan-athe.vercel.app/)
+🌐 **Live Website:** [https://sehat-ai-pakistan-athe.vercel.app/](https://sehat-ai-pakistan-athe.vercel.app/)
 
 **SehatAI Pakistan** is Pakistan's premier AI-powered healthcare navigation platform designed specifically for the Pakistani medical ecosystem. It bridges the gap between digital AI triage, PMDC-verified teleconsultations, laboratory report analysis, hospital emergency tracking, and government Sehat Card health insurance coverage.
 
