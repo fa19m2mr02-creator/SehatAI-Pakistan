@@ -13,6 +13,15 @@
 
 ---
 
+## 🎨 Visual Identity & Aesthetic Principles
+
+* **Pakistani National & Clinical Color Palette:** Framed by a rich slate dark canvas (`#020617` / `#0f172a`) paired with vibrant Emerald Green (`#059669`) and Cyan Teal accents, honoring Pakistani national identity (`🇵🇰`) while maintaining a calm, eye-safe clinical environment for late-night medical usage.
+* **Bilingual Typographic Hierarchy:** Built with seamless side-by-side English and Urdu (Nastaliq alignment) support, establishing clear visual hierarchy for patients across urban and rural demographics.
+* **Live Emergency Micro-Interactions:** Features animated real-time indicators for 24/7 hospital ER statuses, high-visibility urgency badges (`EMERGENCY` red, `URGENT` orange, `MODERATE` yellow, `LOW` green), and smooth progress animations during AI symptom evaluation.
+* **High-Contrast Clean Layout:** Utilizes dark elevated card surface containers, clean 1px border highlights, generous negative space, and responsive touch targets designed for rapid navigation during emergency situations.
+
+---
+
 ## 🌟 Key Features & Capabilities
 
 ### 🩺 1. AI Symptom Triage Assistant (National Health Triage)
