@@ -1,11 +1,11 @@
 # 🇵🇰 SehatAI Pakistan — AI-Powered Healthcare & Teleconsultation Platform
 
-[![Vercel Deployment](https://img.shields.io/badge/Vercel-sehat--ai--pakistan--athe.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://sehat-ai-pakistan-athe.vercel.app/)
-[![License](https://img.shields.io/badge/License-Apache_2.0-0284c7?style=for-the-badge)](LICENSE)
-[![React](https://img.shields.io/badge/React-19.0-61dafb?style=for-the-badge&logo=react)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178c6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.1-38bdf8?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com)
-[![Gemini API](https://img.shields.io/badge/Google_Gemini-3.6_Flash-8e44ad?style=for-the-badge&logo=google)](https://ai.google.dev)
+[![Vercel Deployment](https://img.shields.io/badge/Live_Website-sehat--ai--pakistan--athe.vercel.app-059669?style=for-the-badge&logo=vercel&logoColor=white)](https://sehat-ai-pakistan-athe.vercel.app/)
+[![React](https://img.shields.io/badge/React-v19.0-20232a?style=for-the-badge&logo=react&logoColor=61dafb)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-v5.8-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.1-0f172a?style=for-the-badge&logo=tailwindcss&logoColor=38bdf8)](https://tailwindcss.com)
+[![Google Gemini](https://img.shields.io/badge/Google_Gemini-3.6_Flash-4f46e5?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev)
+[![License](https://img.shields.io/badge/License-Apache_2.0-0d9488?style=for-the-badge&logo=apache&logoColor=white)](LICENSE)
 
 🌐 **Live Website:** [https://sehat-ai-pakistan-athe.vercel.app/](https://sehat-ai-pakistan-athe.vercel.app/)
 
