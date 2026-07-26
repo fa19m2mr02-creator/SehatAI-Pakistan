@@ -1,6 +1,7 @@
 # 🇵🇰 SehatAI Pakistan — AI-Powered Healthcare & Teleconsultation Platform
 
-[![Live Website](https://img.shields.io/badge/Live_Website-SehatAI_Pakistan-059669?style=for-the-badge&logo=google-chrome)](https://ais-pre-2tus2kgqu6ffoe4uhi2uob-1062257505471.asia-southeast1.run.app)
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-sehat--ai--pakistan--athe.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://sehat-ai-pakistan-athe.vercel.app/)
+[![AI Studio Preview](https://img.shields.io/badge/AI_Studio_Preview-Live_App-059669?style=for-the-badge&logo=google-chrome)](https://ais-pre-2tus2kgqu6ffoe4uhi2uob-1062257505471.asia-southeast1.run.app)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-fa19m2mr02--creator%2FSehatAI--Pakistan-10b981?style=for-the-badge&logo=github)](https://github.com/fa19m2mr02-creator/SehatAI-Pakistan)
 [![License](https://img.shields.io/badge/License-Apache_2.0-0284c7?style=for-the-badge)](LICENSE)
 [![React](https://img.shields.io/badge/React-19.0-61dafb?style=for-the-badge&logo=react)](https://react.dev)
@@ -8,44 +9,45 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.1-38bdf8?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com)
 [![Gemini API](https://img.shields.io/badge/Google_Gemini-3.6_Flash-8e44ad?style=for-the-badge&logo=google)](https://ai.google.dev)
 
-🌐 **Live Website Application:** [https://ais-pre-2tus2kgqu6ffoe4uhi2uob-1062257505471.asia-southeast1.run.app](https://ais-pre-2tus2kgqu6ffoe4uhi2uob-1062257505471.asia-southeast1.run.app)  
+🌐 **Live Vercel Production Site:** [https://sehat-ai-pakistan-athe.vercel.app/](https://sehat-ai-pakistan-athe.vercel.app/)  
+⚡ **AI Studio Web App:** [https://ais-pre-2tus2kgqu6ffoe4uhi2uob-1062257505471.asia-southeast1.run.app](https://ais-pre-2tus2kgqu6ffoe4uhi2uob-1062257505471.asia-southeast1.run.app)  
 📁 **GitHub Repository:** [https://github.com/fa19m2mr02-creator/SehatAI-Pakistan](https://github.com/fa19m2mr02-creator/SehatAI-Pakistan)
 
-**SehatAI Pakistan** is Pakistan's premier AI-powered healthcare platform designed specifically for the Pakistani medical ecosystem. It bridges the gap between digital AI triage, PMDC-verified teleconsultations, laboratory report analysis, hospital emergency tracking, and government Sehat Card health insurance coverage.
+**SehatAI Pakistan** is Pakistan's premier AI-powered healthcare navigation platform designed specifically for the Pakistani medical ecosystem. It bridges the gap between digital AI triage, PMDC-verified teleconsultations, laboratory report analysis, hospital emergency tracking, and government Sehat Card health insurance coverage.
 
 ---
 
-## 🌟 Key Features
+## 🌟 Key Features & Capabilities
 
-### 🩺 1. AI Symptom Triage Assistant (Urdu & English)
-* **Real-time AI Assessment:** Powered by Google's `gemini-3.6-flash` model, evaluating user symptoms in plain English, Urdu, or Roman Urdu.
-* **Regional Disease Context:** Specialized awareness of prevalent regional illnesses in Pakistan (e.g., Dengue Fever, Typhoid, Malaria, Gastroenteritis, Heatstroke, COVID-19, Diabetes, and Hypertension).
-* **Urgency Stratification:** Instant color-coded urgency levels (`EMERGENCY`, `URGENT`, `MODERATE`, `LOW`).
-* **Clinical Guidance:** Provides PMDC specialist recommendations, safe immediate home care instructions (e.g., ORS, hydration, temperature monitoring), emergency red flags, and doctor consultation checklists.
+### 🩺 1. AI Symptom Triage Assistant (National Health Triage)
+* **Bilingual AI Evaluation:** Powered by Google's `gemini-3.6-flash` model, assessing symptoms described in English, Urdu (اردو), or Roman Urdu (e.g., *"Mujhe do din se bukhar aur sar dard hai"*).
+* **Regional Disease Context:** Specialized diagnostic awareness for common regional conditions in Pakistan including Dengue Fever, Typhoid, Malaria, Gastroenteritis, Heatstroke, COVID-19, Diabetes, and Hypertension.
+* **Urgency Stratification & Badge:** Instant urgency classification (`EMERGENCY`, `URGENT`, `MODERATE`, `LOW`) with red-flag detection.
+* **Clinical Export & Share Options:** Export generated clinical triage reports as `.txt` files, print formatted medical reports, or copy report summaries directly to clipboard.
+* **Specialist Doctor Referral:** Direct one-click routing to recommended PMDC specialists based on symptom evaluation.
 
-### 🔬 2. AI Lab Report & Prescription Reader (نسخہ)
-* **Smart Medical Document Explainer:** Upload or paste lab reports (CBC, HbA1c, Typhoid/Widal/Typhidot, Dengue NS1/Platelets, LFT, Lipid Profile, Urine RE) or doctor prescription photos.
-* **Bilingual Findings:** Translates complex biomarker values into easy-to-understand English and Urdu explanations.
-* **Actionable Advice:** Includes dietary guidelines, lifestyle recommendations, and follow-up consultation guidance.
+### 🔬 2. AI Lab Report & Prescription Reader (نسخہ / لیب رپورٹ)
+* **Smart Medical Document Explainer:** Upload or paste laboratory test results (CBC, HbA1c, Typhoid/Widal/Typhidot, Dengue NS1/Platelets, LFT, Lipid Profile, Urine RE) or prescription photo details.
+* **Biomarker Explanation:** Translates complex clinical values into plain Urdu and English explanations with diet, lifestyle, and doctor consultation checklists.
 
-### 👨‍⚕️ 3. PMDC Verified Doctor Directory & Teleconsultation
-* **Verified Directory:** Search and filter PMDC-registered specialists across major Pakistani cities (Karachi, Lahore, Islamabad, Peshawar, Quetta, Multan, Faisalabad, Rawalpindi).
-* **Multi-Parametric Filtering:** Filter doctors by specialty, city, consultation fee (PKR), gender, spoken languages (Urdu, English, Pashto, Punjabi, Sindhi), and Sehat Card acceptance.
-* **Seamless Booking:** Interactive modal for scheduling video consultations with instant slot selection and local payment option previews (JazzCash, EasyPaisa, Bank Cards).
+### 👨‍⚕️ 3. PMDC Verified Doctor Directory & Video Consultations
+* **2,500+ PMDC Specialists:** Browse and filter verified doctors across Karachi, Lahore, Islamabad, Peshawar, Quetta, Multan, Faisalabad, and Rawalpindi.
+* **Advanced Filters:** Search by specialty, city, max fee (PKR), doctor gender, spoken languages (Urdu, Pashto, Punjabi, Sindhi), and Sehat Card panel acceptance.
+* **Interactive Booking Portal:** Schedule video calls with instant slot selection and local payment support (JazzCash, EasyPaisa, Bank Cards).
 
 ### 🏥 4. Hospital & ICU Emergency Directory
-* **Trauma Center Database:** Browse leading public and private hospitals across Pakistan (e.g., Aga Khan University Hospital, Shaukat Khanum, Mayo Hospital, PIMS Islamabad, Lady Reading Hospital Peshawar, AKCMH Muzaffarabad).
-* **Real-time ER Specs:** View bed capacities, 24/7 Emergency Room status, ICU ventilator availability, and Sehat Card paneling.
+* **Trauma Center Database:** Real-time bed and emergency tracking for premier healthcare institutions (Aga Khan University Hospital, Shaukat Khanum, Mayo Hospital, PIMS Islamabad, Lady Reading Hospital, AKCMH).
+* **24/7 ER Specs:** View ICU ventilator availability, trauma unit status, casualty phone numbers, and Sehat Card paneling.
 
 ### 💳 5. Sehat Card Plus CNIC Eligibility Checker
-* **Instant CNIC Verification:** Check universal health coverage eligibility for Qaumi Sehat Card Punjab, Sehat Card Plus KP, Sehat Sahulat ICT, Balochistan, GB, AJK, and Sindh.
-* **Coverage Breakdown:** Displays annual family limits (PKR 1,000,000), 100% cashless covered procedures (Cardiology, Cancer, Dialysis, Maternity, ER Trauma), and government SMS verification instructions (8500).
+* **CNIC Health Insurance Verification:** Check coverage eligibility across Qaumi Sehat Card Punjab, Sehat Card Plus KP, Sehat Sahulat ICT, Balochistan, GB, AJK, and Sindh.
+* **Coverage Breakdown:** Details annual family limit (PKR 1,000,000), 100% covered inpatient procedures (Cardiology, Cancer, Dialysis, Maternity, ER Trauma), and 8500 SMS verification instructions.
 
 ### 🚨 6. 24/7 Emergency Hotline & Family SOS Dispatcher
-* **National Emergency Hotlines:** Direct dial links for Rescue 1122, Edhi 115, Chhipa 1020, Aman Ambulance, and Police 15.
-* **City ER Direct Lines:** Quick access phone numbers for major hospital casualty departments.
+* **National Rescue Hotlines:** Direct speed-dial links for Rescue 1122, Edhi 115, Chhipa 1020, Aman Ambulance, and Police 15.
+* **City ER Direct Lines:** Rapid casualty contact numbers for trauma centers in all major cities.
 * **First Aid & CPR Guide:** Step-by-step Basic Life Support (BLS) instructions in English and Urdu.
-* **Family SOS Dispatcher:** One-click emergency alert builder generating pre-formatted WhatsApp and SMS distress messages with live location details.
+* **Family SOS Dispatcher:** One-tap emergency message builder that generates instant WhatsApp and SMS distress messages containing patient name and location details.
 
 ---
 
