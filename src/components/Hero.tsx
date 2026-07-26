@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Sparkles, ShieldCheck, Stethoscope, ArrowRight, Activity, CheckCircle2, Users, MapPin } from 'lucide-react';
 import { Language } from '../types';
 import { TRANSLATIONS, SAMPLE_SYMPTOMS_PAKISTAN } from '../data/pakistanData';
+import heroBannerImg from '../assets/images/hero_pakistan_ai_health_1784971261099.jpg';
+import aiDoctorAvatar from '../assets/images/ai_doctor_avatar_1784971310688.jpg';
 
 interface HeroProps {
   language: Language;
@@ -151,10 +153,14 @@ export const Hero: React.FC<HeroProps> = ({ language, onQuickStartTriage, onNavi
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-800 bg-slate-900">
               <img
-                src="/src/assets/images/hero_pakistan_ai_health_1784971261099.jpg"
+                src={heroBannerImg}
                 alt="Pakistani Doctor with AI Diagnostic Device"
                 className="w-full h-[400px] sm:h-[460px] object-cover opacity-90"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = '/images/hero_pakistan_ai_health_1784971261099.jpg';
+                }}
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
@@ -184,8 +190,17 @@ export const Hero: React.FC<HeroProps> = ({ language, onQuickStartTriage, onNavi
                 title="Click to open AI Symptom Triage"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-300 group-hover:scale-105 transition-transform">
-                    <Stethoscope className="w-5 h-5" />
+                  <div className="relative shrink-0">
+                    <img
+                      src={aiDoctorAvatar}
+                      alt="National Health Triage Profile"
+                      className="w-10 h-10 rounded-xl object-cover border border-teal-500/50 group-hover:scale-105 transition-transform"
+                      onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = '/images/ai_doctor_avatar_1784971310688.jpg';
+                      }}
+                    />
+                    <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-slate-950 rounded-full" />
                   </div>
                   <div>
                     <div className="text-xs font-semibold text-slate-300">National Health Triage</div>

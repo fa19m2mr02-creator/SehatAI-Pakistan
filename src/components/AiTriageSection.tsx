@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, AlertTriangle, ShieldAlert, CheckCircle, Stethoscope, PhoneCall, ArrowRight, RefreshCw, User, HelpCircle, FileText } from 'lucide-react';
+import { Sparkles, AlertTriangle, ShieldAlert, CheckCircle, Stethoscope, PhoneCall, ArrowRight, RefreshCw, User, HelpCircle, FileText, Download, Printer, Copy, Check, Share2 } from 'lucide-react';
 import { Language, AiTriageResponse, UrgencyLevel } from '../types';
 import { SAMPLE_SYMPTOMS_PAKISTAN } from '../data/pakistanData';
+import aiDoctorAvatar from '../assets/images/ai_doctor_avatar_1784971310688.jpg';
 
 interface AiTriageSectionProps {
   language: Language;
@@ -22,6 +23,7 @@ export const AiTriageSection: React.FC<AiTriageSectionProps> = ({
   const [loading, setLoading] = useState(false);
   const [triageResult, setTriageResult] = useState<AiTriageResponse | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     if (initialSymptom) {
@@ -65,6 +67,97 @@ export const AiTriageSection: React.FC<AiTriageSectionProps> = ({
     } finally {
       setLoading(false);
     }
+  };
+
+  const generateReportText = () => {
+    if (!triageResult) return '';
+    const dateStr = new Date().toLocaleString();
+    return `==================================================
+NATIONAL HEALTH TRIAGE PAKISTAN - OFFICIAL CLINICAL REPORT
+Platform: SehatAI Pakistan (PMDC Aligned Ecosystem)
+Patient Profile: Age ${age || 'N/A'}, Gender ${gender}
+Date & Time: ${dateStr}
+==================================================
+
+1. URGENCY ASSESSMENT:
+- Risk Level: ${triageResult.urgency}
+- Recommended Specialist: ${triageResult.recommendedSpecialist}
+
+2. SYMPTOMS SUBMITTED:
+"${symptomsText}"
+
+3. CLINICAL SUMMARY (ENGLISH):
+${triageResult.summaryEn}
+
+4. CLINICAL SUMMARY (URDU / اردو):
+${triageResult.summaryUr}
+
+5. IMMEDIATE HOME ADVICE (گھریلو تدابیر):
+${triageResult.immediateActions.map((a, i) => `   - ${a}`).join('\n')}
+
+6. EMERGENCY RED FLAGS (فوری علامتیں):
+${(triageResult.redFlags || []).map((f, i) => `   - ${f}`).join('\n')}
+
+7. RECOMMENDED QUESTIONS FOR DOCTOR:
+${(triageResult.questionsForDoctor || []).map((q, i) => `   ${i + 1}. ${q}`).join('\n')}
+
+==================================================
+DISCLAIMER:
+${triageResult.disclaimer || 'SehatAI is an educational triage tool and does not replace in-person doctor consultation. In life-threatening emergencies, call Rescue 1122.'}
+==================================================`;
+  };
+
+  const handleDownloadReport = () => {
+    const text = generateReportText();
+    if (!text) return;
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `National_Health_Triage_Report_${Date.now()}.txt`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
+  const handleCopyReport = async () => {
+    const text = generateReportText();
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const handlePrintReport = () => {
+    const text = generateReportText();
+    if (!text) return;
+    const printWin = window.open('', '_blank');
+    if (!printWin) return;
+    printWin.document.write(`
+      <html>
+        <head>
+          <title>National Health Triage Clinical Report</title>
+          <style>
+            body { font-family: system-ui, sans-serif; padding: 20px; line-height: 1.5; color: #000; }
+            h1 { font-size: 20px; color: #0f766e; border-bottom: 2px solid #0f766e; padding-bottom: 5px; }
+            pre { font-family: monospace; font-size: 13px; background: #f8fafc; padding: 15px; border-radius: 8px; white-space: pre-wrap; }
+          </style>
+        </head>
+        <body>
+          <h1>🇵🇰 National Health Triage Pakistan — Clinical Report</h1>
+          <pre>${text}</pre>
+          <script>
+            window.onload = function() { window.print(); }
+          </script>
+        </body>
+      </html>
+    `);
+    printWin.document.close();
   };
 
   const getUrgencyBadge = (urgency: UrgencyLevel) => {
@@ -124,15 +217,27 @@ export const AiTriageSection: React.FC<AiTriageSectionProps> = ({
           <div className="lg:col-span-5 bg-slate-950 text-white p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-800 space-y-6">
             <div className="flex items-center justify-between border-b border-slate-800 pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-300">
-                  <Stethoscope className="w-5 h-5" />
+                <div className="relative shrink-0">
+                  <img
+                    src={aiDoctorAvatar}
+                    alt="Dr. Sehat AI - National Health Triage Specialist"
+                    className="w-12 h-12 rounded-xl object-cover border-2 border-teal-400/80 shadow-md"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = '/images/ai_doctor_avatar_1784971310688.jpg';
+                    }}
+                  />
+                  <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-950 rounded-full" title="Online & Active" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-base text-white">Symptom Assessment</h3>
-                  <p className="text-xs text-cyan-400">Powered by Gemini AI</p>
+                  <h3 className="font-extrabold text-base text-white flex items-center gap-1.5">
+                    <span>Dr. Sehat AI</span>
+                    <span className="text-[10px] bg-teal-900/90 text-teal-300 border border-teal-700/80 px-1.5 py-0.5 rounded font-mono font-bold">PMDC AI</span>
+                  </h3>
+                  <p className="text-xs text-cyan-400 font-medium">National Health Triage Specialist</p>
                 </div>
               </div>
-              <span className="text-[10px] bg-teal-900/80 text-teal-300 border border-teal-700/60 font-bold px-2 py-1 rounded font-mono">
+              <span className="text-[10px] bg-teal-900/80 text-teal-300 border border-teal-700/60 font-bold px-2.5 py-1 rounded-lg font-mono">
                 FREE 24/7
               </span>
             </div>
@@ -260,12 +365,77 @@ export const AiTriageSection: React.FC<AiTriageSectionProps> = ({
             {triageResult && !loading && (
               <div className="space-y-6 animate-fadeIn">
                 
-                {/* Top Status Header */}
-                <div className="bg-slate-900 p-5 rounded-2xl border border-slate-800 shadow-sm space-y-3">
+                {/* Specialist Profile & Export Action Header Bar */}
+                <div className="bg-slate-900 p-4 sm:p-5 rounded-2xl border border-slate-800 shadow-md space-y-4">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-3 border-b border-slate-800">
+                    <div className="flex items-center gap-3">
+                      <div className="relative shrink-0">
+                        <img
+                          src={aiDoctorAvatar}
+                          alt="National Health Triage Evaluator Profile"
+                          className="w-11 h-11 rounded-xl object-cover border-2 border-teal-400 shadow"
+                          onError={(e) => {
+                            e.currentTarget.onerror = null;
+                            e.currentTarget.src = '/images/ai_doctor_avatar_1784971310688.jpg';
+                          }}
+                        />
+                        <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-slate-900 rounded-full" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <h4 className="text-sm font-extrabold text-white">National Health Triage Report</h4>
+                          <span className="text-[10px] bg-teal-950 text-teal-300 border border-teal-800 font-mono font-bold px-1.5 py-0.5 rounded">
+                            VERIFIED EVALUATION
+                          </span>
+                        </div>
+                        <p className="text-xs text-slate-400">Evaluated by Dr. Sehat AI • {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
+                      </div>
+                    </div>
+
+                    {/* Report Export Bar */}
+                    <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+                      <button
+                        onClick={handleDownloadReport}
+                        className="flex-1 sm:flex-none bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs px-3 py-2 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                        title="Download complete report text file"
+                      >
+                        <Download className="w-3.5 h-3.5" />
+                        <span>Export Report</span>
+                      </button>
+
+                      <button
+                        onClick={handlePrintReport}
+                        className="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs px-3 py-2 rounded-xl border border-slate-700 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                        title="Print or Save PDF"
+                      >
+                        <Printer className="w-3.5 h-3.5" />
+                        <span>Print</span>
+                      </button>
+
+                      <button
+                        onClick={handleCopyReport}
+                        className="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs px-3 py-2 rounded-xl border border-slate-700 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                        title="Copy text to clipboard"
+                      >
+                        {copied ? (
+                          <>
+                            <Check className="w-3.5 h-3.5 text-emerald-400" />
+                            <span className="text-emerald-400">Copied!</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-3.5 h-3.5" />
+                            <span>Copy</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </div>
+
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     {getUrgencyBadge(triageResult.urgency)}
                     <span className="text-xs text-slate-300 font-semibold">
-                      Specialist: <strong className="text-cyan-300">{triageResult.recommendedSpecialist}</strong>
+                      Recommended Specialist: <strong className="text-cyan-300">{triageResult.recommendedSpecialist}</strong>
                     </span>
                   </div>
 
