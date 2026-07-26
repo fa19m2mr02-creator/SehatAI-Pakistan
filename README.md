@@ -183,6 +183,12 @@ Distributed under the Apache 2.0 License. See `LICENSE` for details.
 
 ---
 
+## 🎯 Our Mission
+
+Our mission is to democratize access to quality, timely, and bilingual healthcare navigation across all provinces and regions of Pakistan. By harnessing advanced generative AI, real-time emergency telemetry, and PMDC doctor networks, **SehatAI Pakistan** strives to eliminate medical triage delays, simplify complex lab reports in Urdu and English, and ensure no family is left without life-saving guidance during critical emergencies.
+
+---
+
 <p align="center">
-  <b>Developed for the people of Pakistan 🇵🇰</b>
+  <b>Developed with ❤️ for the people of Pakistan 🇵🇰</b>
 </p>
