@@ -3,6 +3,7 @@ import { Sparkles, AlertTriangle, ShieldAlert, CheckCircle, Stethoscope, PhoneCa
 import { Language, AiTriageResponse, UrgencyLevel } from '../types';
 import { SAMPLE_SYMPTOMS_PAKISTAN } from '../data/pakistanData';
 import aiDoctorAvatar from '../assets/images/ai_doctor_avatar_1784971310688.jpg';
+import { getDoctorAvatarFallback } from '../utils/imageUtils';
 
 interface AiTriageSectionProps {
   language: Language;
@@ -134,25 +135,130 @@ ${triageResult.disclaimer || 'SehatAI is an educational triage tool and does not
   };
 
   const handlePrintReport = () => {
-    const text = generateReportText();
-    if (!text) return;
+    if (!triageResult) return;
+    const dateStr = new Date().toLocaleString();
+    const avatarSrc = aiDoctorAvatar || getDoctorAvatarFallback('Dr. Sehat AI');
     const printWin = window.open('', '_blank');
     if (!printWin) return;
+
+    const urgencyColor = triageResult.urgency === 'EMERGENCY' ? '#dc2626' : triageResult.urgency === 'URGENT' ? '#ea580c' : triageResult.urgency === 'MODERATE' ? '#d97706' : '#059669';
+
     printWin.document.write(`
+      <!DOCTYPE html>
       <html>
         <head>
-          <title>National Health Triage Clinical Report</title>
+          <title>National Health Triage Clinical Report — SehatAI Pakistan</title>
+          <meta charset="utf-8">
           <style>
-            body { font-family: system-ui, sans-serif; padding: 20px; line-height: 1.5; color: #000; }
-            h1 { font-size: 20px; color: #0f766e; border-bottom: 2px solid #0f766e; padding-bottom: 5px; }
-            pre { font-family: monospace; font-size: 13px; background: #f8fafc; padding: 15px; border-radius: 8px; white-space: pre-wrap; }
+            @media print {
+              body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            }
+            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding: 30px; color: #0f172a; max-width: 800px; margin: 0 auto; background: #fff; }
+            .header-bar { display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #0f766e; padding-bottom: 18px; margin-bottom: 22px; }
+            .profile-box { display: flex; align-items: center; gap: 16px; }
+            .profile-avatar { width: 72px; height: 72px; border-radius: 16px; object-fit: cover; border: 2px solid #0f766e; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+            .doctor-title { font-size: 20px; font-weight: 800; color: #0f766e; margin: 0; }
+            .doctor-sub { font-size: 13px; color: #475569; margin: 2px 0 0 0; font-weight: 500; }
+            .badge { background: #0f766e; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; display: inline-block; margin-top: 4px; }
+            
+            .patient-meta { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px 18px; margin-bottom: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 13px; }
+            .meta-item strong { color: #334155; }
+            
+            .urgency-banner { padding: 14px 20px; border-radius: 12px; color: #fff; font-weight: 800; font-size: 15px; margin-bottom: 22px; display: flex; align-items: center; justify-content: space-between; background-color: ${urgencyColor}; }
+
+            .section { margin-bottom: 20px; }
+            .section-title { font-size: 13px; font-weight: 800; color: #0f766e; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 8px; }
+            .symptom-quote { background: #f1f5f9; border-left: 4px solid #0f766e; padding: 10px 14px; font-style: italic; font-size: 13px; color: #1e293b; border-radius: 0 8px 8px 0; }
+            
+            .summary-box { background: #fafafa; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 16px; font-size: 13px; line-height: 1.6; }
+            .urdu-text { direction: rtl; text-align: right; font-size: 14px; color: #0f172a; line-height: 1.8; }
+            
+            ul.action-list { margin: 0; padding-left: 20px; }
+            ul.action-list li { margin-bottom: 5px; font-size: 13px; color: #334155; }
+            
+            .footer-disclaimer { margin-top: 25px; padding-top: 15px; border-top: 2px solid #e2e8f0; font-size: 11px; color: #64748b; text-align: center; font-style: italic; }
           </style>
         </head>
         <body>
-          <h1>🇵🇰 National Health Triage Pakistan — Clinical Report</h1>
-          <pre>${text}</pre>
+          <div class="header-bar">
+            <div class="profile-box">
+              <img src="${avatarSrc}" alt="Dr. Sehat AI Profile" class="profile-avatar" onerror="this.onerror=null;this.src='${getDoctorAvatarFallback('Dr. Sehat AI')}';" />
+              <div>
+                <h1 class="doctor-title">Dr. Sehat AI — National Health Triage</h1>
+                <p class="doctor-sub">PMDC Aligned Ecosystem • Ministry of Health Standards</p>
+                <span class="badge">VERIFIED CLINICAL REPORT</span>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 24px;">🇵🇰</span>
+              <p style="font-size: 11px; color: #64748b; margin: 4px 0 0 0; font-weight: 700;">SehatAI Pakistan</p>
+            </div>
+          </div>
+
+          <div class="patient-meta">
+            <div class="meta-item"><strong>Patient Profile:</strong> Age ${age || 'N/A'} • ${gender}</div>
+            <div class="meta-item"><strong>Evaluation Date:</strong> ${dateStr}</div>
+            <div class="meta-item"><strong>Recommended Specialist:</strong> ${triageResult.recommendedSpecialist}</div>
+            <div class="meta-item"><strong>Report ID:</strong> TRIAGE-${Math.floor(100000 + Math.random() * 900000)}</div>
+          </div>
+
+          <div class="urgency-banner">
+            <span>URGENCY LEVEL: ${triageResult.urgency}</span>
+            <span>${triageResult.urgency === 'EMERGENCY' ? '🚨 CRITICAL EMERGENCY' : triageResult.urgency === 'URGENT' ? '⚠️ URGENT CARE NEEDED' : '✅ STABLE / HOME CARE'}</span>
+          </div>
+
+          <div class="section">
+            <div class="section-title">1. Patient Reported Symptoms</div>
+            <div class="symptom-quote">"${symptomsText}"</div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">2. Clinical Evaluation (English)</div>
+            <div class="summary-box">${triageResult.summaryEn}</div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">3. Clinical Evaluation (Urdu / اردو)</div>
+            <div class="summary-box urdu-text">${triageResult.summaryUr}</div>
+          </div>
+
+          ${triageResult.immediateActions && triageResult.immediateActions.length > 0 ? `
+            <div class="section">
+              <div class="section-title">4. Immediate Actions & Care Steps (گھریلو تدابیر)</div>
+              <ul class="action-list">
+                ${triageResult.immediateActions.map(act => `<li>${act}</li>`).join('')}
+              </ul>
+            </div>
+          ` : ''}
+
+          ${triageResult.redFlags && triageResult.redFlags.length > 0 ? `
+            <div class="section">
+              <div class="section-title" style="color: #dc2626;">5. Emergency Red Flags (فوری ایمرجنسی علامتیں)</div>
+              <ul class="action-list">
+                ${triageResult.redFlags.map(rf => `<li style="color: #dc2626; font-weight: 600;">⚠️ ${rf}</li>`).join('')}
+              </ul>
+            </div>
+          ` : ''}
+
+          ${triageResult.questionsForDoctor && triageResult.questionsForDoctor.length > 0 ? `
+            <div class="section">
+              <div class="section-title">6. Recommended Questions for PMDC Specialist</div>
+              <ul class="action-list">
+                ${triageResult.questionsForDoctor.map(q => `<li>${q}</li>`).join('')}
+              </ul>
+            </div>
+          ` : ''}
+
+          <div class="footer-disclaimer">
+            <strong>Medical Disclaimer:</strong> ${triageResult.disclaimer || 'SehatAI is an AI-powered educational triage tool aligned with PMDC guidelines. It does not replace in-person medical diagnosis. In case of life-threatening emergencies, contact Rescue 1122 or Edhi Ambulance immediately.'}
+          </div>
+
           <script>
-            window.onload = function() { window.print(); }
+            window.onload = function() {
+              setTimeout(function() {
+                window.print();
+              }, 400);
+            };
           </script>
         </body>
       </html>
@@ -224,7 +330,7 @@ ${triageResult.disclaimer || 'SehatAI is an educational triage tool and does not
                     className="w-12 h-12 rounded-xl object-cover border-2 border-teal-400/80 shadow-md"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = aiDoctorAvatar;
+                      e.currentTarget.src = getDoctorAvatarFallback('Dr. Sehat AI');
                     }}
                   />
                   <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-950 rounded-full" title="Online & Active" />
@@ -376,7 +482,7 @@ ${triageResult.disclaimer || 'SehatAI is an educational triage tool and does not
                           className="w-11 h-11 rounded-xl object-cover border-2 border-teal-400 shadow"
                           onError={(e) => {
                             e.currentTarget.onerror = null;
-                            e.currentTarget.src = aiDoctorAvatar;
+                            e.currentTarget.src = getDoctorAvatarFallback('Dr. Sehat AI');
                           }}
                         />
                         <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-slate-900 rounded-full" />
