@@ -26,6 +26,13 @@
 
 An interactive showcase of the primary modules powering **SehatAI Pakistan**:
 
+### 🌟 Platform Overview & AI Assistant Portal
+![SehatAI Pakistan Platform Overview](src/assets/images/hero_pakistan_ai_health_1784971261099.jpg)
+* **National Digital Health Portal:** Integrated bilingual healthcare navigation hub serving patients across Pakistan.
+* **Instant Triage & Teleconsultation:** Fast access to AI symptom evaluation, verified PMDC doctor bookings, and hospital emergency locator.
+
+---
+
 ### 🩺 1. National AI Symptom Triage (اردو / English)
 ![AI Symptom Triage](src/assets/images/triage_ui_preview_1785065359573.jpg)
 * **Multilingual Triage Engine:** Evaluates medical symptoms submitted in English, Urdu (اردو), or Roman Urdu.
