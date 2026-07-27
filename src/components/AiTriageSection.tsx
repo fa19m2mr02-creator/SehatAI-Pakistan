@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Sparkles, AlertTriangle, ShieldAlert, CheckCircle, Stethoscope, PhoneCall, ArrowRight, RefreshCw, User, HelpCircle, FileText, Download, Printer, Copy, Check, Share2 } from 'lucide-react';
 import { Language, AiTriageResponse, UrgencyLevel } from '../types';
 import { SAMPLE_SYMPTOMS_PAKISTAN } from '../data/pakistanData';
-import aiDoctorAvatar from '../../assets/images/ai_doctor_avatar_1784971310688.jpg';
+import aiDoctorAvatar from '../assets/images/ai_doctor_avatar_1784971310688.jpg';
 
 interface AiTriageSectionProps {
   language: Language;

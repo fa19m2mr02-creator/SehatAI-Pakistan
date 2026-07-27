@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Sparkles, ShieldCheck, Stethoscope, ArrowRight, Activity, CheckCircle2, Users, MapPin } from 'lucide-react';
 import { Language } from '../types';
 import { TRANSLATIONS, SAMPLE_SYMPTOMS_PAKISTAN } from '../data/pakistanData';
-import heroBannerImg from '../../assets/images/hero_pakistan_ai_health_1784971261099.jpg';
-import aiDoctorAvatar from '../../assets/images/ai_doctor_avatar_1784971310688.jpg';
+import heroBannerImg from '../assets/images/hero_pakistan_ai_health_1784971261099.jpg';
+import aiDoctorAvatar from '../assets/images/ai_doctor_avatar_1784971310688.jpg';
 
 interface HeroProps {
   language: Language;
