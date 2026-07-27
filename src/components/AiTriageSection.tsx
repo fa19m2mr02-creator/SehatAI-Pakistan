@@ -137,7 +137,13 @@ ${triageResult.disclaimer || 'SehatAI is an educational triage tool and does not
   const handlePrintReport = () => {
     if (!triageResult) return;
     const dateStr = new Date().toLocaleString();
-    const avatarSrc = aiDoctorAvatar || getDoctorAvatarFallback('Dr. Sehat AI');
+    const rawAvatar = aiDoctorAvatar || '';
+    const avatarSrc = (rawAvatar.startsWith('http') || rawAvatar.startsWith('data:'))
+      ? rawAvatar
+      : rawAvatar
+        ? `${window.location.origin}${rawAvatar.startsWith('/') ? '' : '/'}${rawAvatar}`
+        : getDoctorAvatarFallback('Dr. Sehat AI');
+        
     const printWin = window.open('', '_blank');
     if (!printWin) return;
 
@@ -149,6 +155,7 @@ ${triageResult.disclaimer || 'SehatAI is an educational triage tool and does not
         <head>
           <title>National Health Triage Clinical Report — SehatAI Pakistan</title>
           <meta charset="utf-8">
+          <base href="${window.location.origin}/">
           <style>
             @media print {
               body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -156,7 +163,7 @@ ${triageResult.disclaimer || 'SehatAI is an educational triage tool and does not
             body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding: 30px; color: #0f172a; max-width: 800px; margin: 0 auto; background: #fff; }
             .header-bar { display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #0f766e; padding-bottom: 18px; margin-bottom: 22px; }
             .profile-box { display: flex; align-items: center; gap: 16px; }
-            .profile-avatar { width: 72px; height: 72px; border-radius: 16px; object-fit: cover; border: 2px solid #0f766e; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+            .profile-avatar { width: 72px; height: 72px; border-radius: 16px; object-fit: cover; border: 2px solid #0f766e; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); background-color: #0f766e; }
             .doctor-title { font-size: 20px; font-weight: 800; color: #0f766e; margin: 0; }
             .doctor-sub { font-size: 13px; color: #475569; margin: 2px 0 0 0; font-weight: 500; }
             .badge { background: #0f766e; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; display: inline-block; margin-top: 4px; }

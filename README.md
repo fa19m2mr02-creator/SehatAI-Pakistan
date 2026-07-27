@@ -27,14 +27,14 @@
 An interactive showcase of the primary modules powering **SehatAI Pakistan**:
 
 ### 🌟 Platform Overview & AI Assistant Portal
-![SehatAI Pakistan Platform Overview](src/assets/images/hero_pakistan_ai_health_1784971261099.jpg)
+![SehatAI Pakistan Platform Overview](./src/assets/images/hero_pakistan_ai_health_1784971261099.jpg)
 * **National Digital Health Portal:** Integrated bilingual healthcare navigation hub serving patients across Pakistan.
 * **Instant Triage & Teleconsultation:** Fast access to AI symptom evaluation, verified PMDC doctor bookings, and hospital emergency locator.
 
 ---
 
 ### 🩺 1. National AI Symptom Triage (اردو / English)
-![AI Symptom Triage](src/assets/images/triage_ui_preview_1785065359573.jpg)
+![AI Symptom Triage](./src/assets/images/triage_ui_preview_1785065359573.jpg)
 * **Multilingual Triage Engine:** Evaluates medical symptoms submitted in English, Urdu (اردو), or Roman Urdu.
 * **Urgency Stratification:** Assigns real-time urgency badges (`EMERGENCY`, `URGENT`, `MODERATE`, `LOW`) with red-flag detection.
 * **Clinical Report Export:** One-click tools to copy, download `.txt` reports, print formatted clinical summaries, or routing to PMDC specialists.
@@ -42,7 +42,7 @@ An interactive showcase of the primary modules powering **SehatAI Pakistan**:
 ---
 
 ### 🔬 2. AI Lab Report & Prescription Reader
-![AI Lab Report & Prescription Reader](src/assets/images/lab_reader_preview_1785065382214.jpg)
+![AI Lab Report & Prescription Reader](./src/assets/images/lab_reader_preview_1785065382214.jpg)
 * **Smart Biomarker Analysis:** Explains laboratory values (CBC, HbA1c, Dengue NS1, Typhoid, LFTs, Lipid Profiles) in patient-friendly terms.
 * **Bilingual Translation:** Displays findings side-by-side in Urdu and English with reference ranges.
 * **Clinical Action Items:** Provides dietary advice, warning flags, and recommended specialist follow-ups.
@@ -50,7 +50,7 @@ An interactive showcase of the primary modules powering **SehatAI Pakistan**:
 ---
 
 ### 👨‍⚕️ 3. PMDC Verified Doctor Teleconsultations
-![PMDC Verified Teleconsultation](src/assets/images/doctor_portal_preview_1785065396924.jpg)
+![PMDC Verified Teleconsultation](./src/assets/images/doctor_portal_preview_1785065396924.jpg)
 * **Verified Specialist Directory:** Search 2,500+ PMDC-registered doctors across Karachi, Lahore, Islamabad, Peshawar, Quetta, and Faisalabad.
 * **Filter & Schedule:** Sort by medical specialty, consultation fee (PKR), patient ratings, gender, and live video slots.
 * **Sehat Card Coverage:** Identifies specialists offering zero-out-of-pocket consultations under government health insurance.
@@ -58,7 +58,7 @@ An interactive showcase of the primary modules powering **SehatAI Pakistan**:
 ---
 
 ### 🏥 4. Hospital Emergency Room & Sehat Card Portal
-![Hospital ER & Sehat Card](src/assets/images/hospital_er_preview_1785065412334.jpg)
+![Hospital ER & Sehat Card](./src/assets/images/hospital_er_preview_1785065412334.jpg)
 * **Live ER Telemetry:** Monitors real-time ICU bed availability, ventilator status, and emergency room wait times across major cities.
 * **Sehat Card CNIC Verification:** Instant eligibility lookup for PKR 1,000,000 annual family coverage under the Sehat Sahulat Program.
 * **Rescue Speed Dial:** Direct hotline triggers for Rescue 1122, Edhi Foundation, and Chhipa Ambulance services.
