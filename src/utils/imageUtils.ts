@@ -24,3 +24,40 @@ export const getDoctorAvatarFallback = (name: string): string => {
 
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 };
+
+export const getBase64Image = (imgUrl: string): Promise<string> => {
+  return new Promise((resolve) => {
+    if (!imgUrl) {
+      resolve(getDoctorAvatarFallback('Dr. Sehat AI'));
+      return;
+    }
+    if (imgUrl.startsWith('data:')) {
+      resolve(imgUrl);
+      return;
+    }
+
+    const img = new Image();
+    img.crossOrigin = 'Anonymous';
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.naturalWidth || img.width || 128;
+        canvas.height = img.naturalHeight || img.height || 128;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.drawImage(img, 0, 0);
+          const dataURL = canvas.toDataURL('image/jpeg', 0.9);
+          resolve(dataURL);
+          return;
+        }
+      } catch (e) {
+        console.warn('Canvas conversion failed, fallbacking:', e);
+      }
+      resolve(getDoctorAvatarFallback('Dr. Sehat AI'));
+    };
+    img.onerror = () => {
+      resolve(getDoctorAvatarFallback('Dr. Sehat AI'));
+    };
+    img.src = imgUrl;
+  });
+};

@@ -3,7 +3,7 @@ import { Sparkles, AlertTriangle, ShieldAlert, CheckCircle, Stethoscope, PhoneCa
 import { Language, AiTriageResponse, UrgencyLevel } from '../types';
 import { SAMPLE_SYMPTOMS_PAKISTAN } from '../data/pakistanData';
 import aiDoctorAvatar from '../assets/images/ai_doctor_avatar_1784971310688.jpg';
-import { getDoctorAvatarFallback } from '../utils/imageUtils';
+import { getDoctorAvatarFallback, getBase64Image } from '../utils/imageUtils';
 
 interface AiTriageSectionProps {
   language: Language;
@@ -134,15 +134,11 @@ ${triageResult.disclaimer || 'SehatAI is an educational triage tool and does not
     }
   };
 
-  const handlePrintReport = () => {
+  const handlePrintReport = async () => {
     if (!triageResult) return;
     const dateStr = new Date().toLocaleString();
     const rawAvatar = aiDoctorAvatar || '';
-    const avatarSrc = (rawAvatar.startsWith('http') || rawAvatar.startsWith('data:'))
-      ? rawAvatar
-      : rawAvatar
-        ? `${window.location.origin}${rawAvatar.startsWith('/') ? '' : '/'}${rawAvatar}`
-        : getDoctorAvatarFallback('Dr. Sehat AI');
+    const embeddedAvatar = await getBase64Image(rawAvatar);
         
     const printWin = window.open('', '_blank');
     if (!printWin) return;
@@ -189,7 +185,7 @@ ${triageResult.disclaimer || 'SehatAI is an educational triage tool and does not
         <body>
           <div class="header-bar">
             <div class="profile-box">
-              <img src="${avatarSrc}" alt="Dr. Sehat AI Profile" class="profile-avatar" onerror="this.onerror=null;this.src='${getDoctorAvatarFallback('Dr. Sehat AI')}';" />
+              <img src="${embeddedAvatar}" alt="Dr. Sehat AI Profile" class="profile-avatar" onerror="this.onerror=null;this.src='${getDoctorAvatarFallback('Dr. Sehat AI')}';" />
               <div>
                 <h1 class="doctor-title">Dr. Sehat AI — National Health Triage</h1>
                 <p class="doctor-sub">PMDC Aligned Ecosystem • Ministry of Health Standards</p>
