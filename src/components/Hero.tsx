@@ -159,7 +159,7 @@ export const Hero: React.FC<HeroProps> = ({ language, onQuickStartTriage, onNavi
                 referrerPolicy="no-referrer"
                 onError={(e) => {
                   e.currentTarget.onerror = null;
-                  e.currentTarget.src = '/images/hero_pakistan_ai_health_1784971261099.jpg';
+                  e.currentTarget.src = heroBannerImg;
                 }}
               />
 
@@ -197,7 +197,7 @@ export const Hero: React.FC<HeroProps> = ({ language, onQuickStartTriage, onNavi
                       className="w-10 h-10 rounded-xl object-cover border border-teal-500/50 group-hover:scale-105 transition-transform"
                       onError={(e) => {
                         e.currentTarget.onerror = null;
-                        e.currentTarget.src = '/images/ai_doctor_avatar_1784971310688.jpg';
+                        e.currentTarget.src = aiDoctorAvatar;
                       }}
                     />
                     <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-slate-950 rounded-full" />

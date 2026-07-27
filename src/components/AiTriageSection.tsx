@@ -224,7 +224,7 @@ ${triageResult.disclaimer || 'SehatAI is an educational triage tool and does not
                     className="w-12 h-12 rounded-xl object-cover border-2 border-teal-400/80 shadow-md"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = '/images/ai_doctor_avatar_1784971310688.jpg';
+                      e.currentTarget.src = aiDoctorAvatar;
                     }}
                   />
                   <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-950 rounded-full" title="Online & Active" />
@@ -376,7 +376,7 @@ ${triageResult.disclaimer || 'SehatAI is an educational triage tool and does not
                           className="w-11 h-11 rounded-xl object-cover border-2 border-teal-400 shadow"
                           onError={(e) => {
                             e.currentTarget.onerror = null;
-                            e.currentTarget.src = '/images/ai_doctor_avatar_1784971310688.jpg';
+                            e.currentTarget.src = aiDoctorAvatar;
                           }}
                         />
                         <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-slate-900 rounded-full" />

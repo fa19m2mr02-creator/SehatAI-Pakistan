@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Stethoscope, Star, CheckCircle, Video, MapPin, Calendar, Clock, CreditCard, ShieldCheck, X, Phone, User, Check, Building } from 'lucide-react';
 import { Doctor, Language, AppointmentBooking } from '../types';
 import { DOCTORS_DATA, PAKISTAN_CITIES, SPECIALTIES } from '../data/pakistanData';
+import { getDoctorAvatarFallback } from '../utils/imageUtils';
 
 interface DoctorDirectoryProps {
   language: Language;
@@ -154,7 +155,7 @@ export const DoctorDirectory: React.FC<DoctorDirectoryProps> = ({
                       referrerPolicy="no-referrer"
                       onError={(e) => {
                         e.currentTarget.onerror = null;
-                        e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(doc.name)}&background=0f766e&color=fff&size=128`;
+                        e.currentTarget.src = getDoctorAvatarFallback(doc.name);
                       }}
                     />
                     <div>
@@ -249,7 +250,7 @@ export const DoctorDirectory: React.FC<DoctorDirectoryProps> = ({
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(bookingDoctor.name)}&background=0f766e&color=fff&size=128`;
+                      e.currentTarget.src = getDoctorAvatarFallback(bookingDoctor.name);
                     }}
                   />
                   <div>
